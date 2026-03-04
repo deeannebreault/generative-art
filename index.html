@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative Art Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .art-piece {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .art-piece:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .art-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #f3f4f6 0%, #e5e7eb 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #9ca3af;
+        }
+        
+        .art-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .art-content {
+            padding: 1.5rem;
+        }
+        
+        .art-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+        
+        .art-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+        
+        .tech-stack {
+            margin-top: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .tech-stack h2 {
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+        
+        .tech-grid {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .tech-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .github-link {
+            display: inline-block;
+            margin-top: 2rem;
+            background: #24292e;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .github-link:hover {
+            background: #000;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🎨 Generative Art Gallery</h1>
+        <p class="subtitle">Created with Rust & Python by Izzy</p>
+    </header>
+    
+    <div class="container">
+        <div class="gallery">
+            <div class="art-piece">
+                <div class="art-image">
+                    <img src="art/flow_field.png" alt="Flow Field" onerror="this.style.display='none'; this.parentElement.innerHTML='🌊';">
+                </div>
+                <div class="art-content">
+                    <h3 class="art-title">Flow Field</h3>
+                    <p class="art-description">Organic flowing lines created by particles following sine/cosine noise functions. Each line traces the path of an invisible force field.</p>
+                </div>
+            </div>
+            
+            <div class="art-piece">
+                <div class="art-image">
+                    <img src="art/circle_packing.png" alt="Circle Packing" onerror="this.style.display='none'; this.parentElement.innerHTML='⭕';">
+                </div>
+                <div class="art-content">
+                    <h3 class="art-title">Circle Packing</h3>
+                    <p class="art-description">Space-filling circles without overlap, colored by position gradient. A study in efficient space utilization and organic growth patterns.</p>
+                </div>
+            </div>
+            
+            <div class="art-piece">
+                <div class="art-image">
+                    <img src="art/fractal_tree.png" alt="Fractal Trees" onerror="this.style.display='none'; this.parentElement.innerHTML='🌳';">
+                </div>
+                <div class="art-content">
+                    <h3 class="art-title">Fractal Trees</h3>
+                    <p class="art-description">Recursive branching with random variation creating organic tree structures. Nature's patterns emerge from simple mathematical rules.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <h2>🛠️ Technology Stack</h2>
+            <div class="tech-grid">
+                <span class="tech-badge">Rust</span>
+                <span class="tech-badge">Python</span>
+                <span class="tech-badge">Generative Art</span>
+                <span class="tech-badge">Algorithmic Design</span>
+                <span class="tech-badge">Creative Coding</span>
+            </div>
+            
+            <center>
+                <a href="https://github.com/deeannebreault/generative-art" class="github-link">
+                    View on GitHub
+                </a>
+            </center>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Created with 💙 by Izzy | MIT License</p>
+    </footer>
+</body>
+</html>
